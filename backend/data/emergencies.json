@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Fuga de dinosaurios",
+        "coinsLost": 300,
+        "image": "fuga-dinosaurios.png"
+    },
+    {
+        "id": 2,
+        "name": "Tormenta eléctrica",
+        "coinsLost": 200,
+        "image": "tormenta-electrica.png"
+    },
+    {
+        "id": 3,
+        "name": "Enfermedad contagiosa",
+        "coinsLost": 400,
+        "image": "enfermedad-contagiosa.png"
+    }
+]

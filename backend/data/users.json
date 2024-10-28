@@ -1,0 +1,37 @@
+[
+    {
+        "id": "12345",
+        "email": "usuario1@example.com",
+        "password": "$2b$10$KX7Yq8OZKxEO8Oq9huhyGeQoE4TghPBZmzRq8YkxpN1VVwPnMcWqu"
+    },
+    {
+        "id": "67890",
+        "email": "usuario2@example.com",
+        "password": "$2b$10$ZJ1xB.NvGk1kCjsLvbv4guESBr5x9Jb.bLssEcbqx9htPAeWfZ5ne"
+    },
+    {
+        "id": "52b8f81d-97b6-4ccd-8927-33cf6a96c9be",
+        "email": "usuario@example.com",
+        "password": "$2b$10$8uVxVjgkYV5khRcwp.f51.h7i7rCqvhoKYb5II33YzZq5IimYGpQ6"
+    },
+    {
+        "id": "1655c1c3-5321-44ae-97bc-b282dedcb246",
+        "email": "usuario1@gmail.com",
+        "password": "$2b$10$bty.WpTF1uKiPcAji5JDjuN..2hKjIiXCNtfrjpueTwwP/6FhMBEO"
+    },
+    {
+        "id": "fda1d86b-d34a-40e7-8cdc-d45b1b092655",
+        "email": "Lucy_Wiegand52@gmail.com",
+        "password": "$2b$10$h.yrC3ShxOjB1bGGeMDJa.Ay9GBJoq.WgG5KjIii8HDHhvcCXX4Cu"
+    },
+    {
+        "id": "c2d9ba2a-c18b-48fe-aa87-e95a79745269",
+        "email": "Lucy_Wiegand522@gmail.com",
+        "password": "$2b$10$HsMhN./7SYRPbm20civjDOoqDodhzfUKRWCP5VvA3ks5psUc/cnTu"
+    },
+    {
+        "id": "acecbc76-c24a-4e5a-8847-b00716347366",
+        "email": "Lucy_Wiegand5222@gmail.com",
+        "password": "$2b$10$dgUgiR.AsC/fMXlBj04MtORG0PvWgIuNTU9uzZLHePDhdwC2AwTu."
+    }
+]

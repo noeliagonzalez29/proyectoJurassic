@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "Recinto de depredadores",
+        "description": "Recinto seguro y fortificado diseñado para dinosaurios carnívoros grandes.",
+        "image": "/images/enclosures/recinto-depredadores.webp",
+        "cost": 1000
+    },
+    {
+        "id": 2,
+        "name": "Recinto de herbívoros",
+        "description": "Un amplio recinto con abundante vegetación para albergar dinosaurios herbívoros.",
+        "image": "/images/enclosures/recinto-herbivoros.webp",
+        "cost": 800
+    },
+    {
+        "id": 3,
+        "name": "Recinto gigante",
+        "description": "Espacio inmenso diseñado para albergar dinosaurios de gran tamaño como Brachiosaurus.",
+        "image": "/images/enclosures/recinto-gigante.webp",
+        "cost": 1200
+    },
+    {
+        "id": 4,
+        "name": "Recinto volador",
+        "description": "Área cerrada donde se pueden alojar dinosaurios voladores como Pteranodon.",
+        "image": "/images/enclosures/recinto-volador.webp",
+        "cost": 900
+    },
+    {
+        "id": 5,
+        "name": "Recinto acuático",
+        "description": "Espacio acuático especializado para dinosaurios marinos como el Mosasaurus.",
+        "image": "/images/enclosures/recinto-acuatico.webp",
+        "cost": 1500
+    }
+]

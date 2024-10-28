@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Tyrannosaurus Rex",
+        "scientificName": "Tyrannosaurus rex",
+        "cost": 500,
+        "requiredRecintoId": 1,
+        "image": "images/dinosaurs/t-rex.webp"
+    },
+    {
+        "id": 2,
+        "name": "Velociraptor",
+        "scientificName": "Velociraptor mongoliensis",
+        "cost": 300,
+        "requiredRecintoId": 1,
+        "image": "images/dinosaurs/velociraptor.webp"
+    },
+    {
+        "id": 3,
+        "name": "Triceratops",
+        "scientificName": "Triceratops horridus",
+        "cost": 400,
+        "requiredRecintoId": 2,
+        "image": "images/dinosaurs/triceratops.webp"
+    },
+    {
+        "id": 4,
+        "name": "Brachiosaurus",
+        "scientificName": "Brachiosaurus altithorax",
+        "cost": 600,
+        "requiredRecintoId": 3,
+        "image": "images/dinosaurs/brachiosaurus.webp"
+    },
+    {
+        "id": 5,
+        "name": "Stegosaurus",
+        "scientificName": "Stegosaurus stenops",
+        "cost": 350,
+        "requiredRecintoId": 2,
+        "image": "images/dinosaurs/stegosaurus.webp"
+    },
+    {
+        "id": 6,
+        "name": "Pteranodon",
+        "scientificName": "Pteranodon longiceps",
+        "cost": 450,
+        "requiredRecintoId": 4,
+        "image": "images/dinosaurs/pteranodon.webp"
+    },
+    {
+        "id": 7,
+        "name": "Spinosaurus",
+        "scientificName": "Spinosaurus aegyptiacus",
+        "cost": 700,
+        "requiredRecintoId": 1,
+        "image": "images/dinosaurs/spinosaurus.webp"
+    },
+    {
+        "id": 8,
+        "name": "Ankylosaurus",
+        "scientificName": "Ankylosaurus magniventris",
+        "cost": 400,
+        "requiredRecintoId": 2,
+        "image": "images/dinosaurs/ankylosaurus.webp"
+    },
+    {
+        "id": 9,
+        "name": "Parasaurolophus",
+        "scientificName": "Parasaurolophus walkeri",
+        "cost": 300,
+        "requiredRecintoId": 2,
+        "image": "images/dinosaurs/parasaurolophus.webp"
+    },
+    {
+        "id": 10,
+        "name": "Mosasaurus",
+        "scientificName": "Mosasaurus hoffmannii",
+        "cost": 800,
+        "requiredRecintoId": 5,
+        "image": "images/dinosaurs/mosasaurus.webp"
+    }
+]
