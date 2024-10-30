@@ -10,6 +10,7 @@
   border-radius: 8px;
   display: inline-block;
   width: 200px;
+
 }
 
 button {
@@ -25,7 +26,14 @@ button {
 button:hover {
   background-color: #45a049;
 }
-img{
-  width: 50%;
-  height: 50%;
+#moneda{
+  width: 20%;
+  height: 20%;
+
+}
+
+.dino-card img, .recinto-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }

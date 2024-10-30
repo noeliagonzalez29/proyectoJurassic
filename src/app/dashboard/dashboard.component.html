@@ -1,9 +1,13 @@
 <div class="dashboard">
 
   <h1>Parque de Dinosaurios</h1>
-  <p>Nombre del Parque: {{ parque?.parkName }}</p>
+
+
+     //no poner nombre del parque. Para la moneda moneda.coin
+
+
   <p>Monedas acumuladas: <span>{{ moneda }}</span>
-  <img src="../../../assets/images/moneda.png" alt="Moneda" /></p>
+  <img id="moneda" src="/images/moneda.png" alt="Moneda" /></p>
 
 
   <button (click)="AumentoMoneda()">Hacer Click y Ganar Monedas</button>
@@ -12,10 +16,13 @@
   <div *ngIf="dino.length">
     <div *ngFor="let d of dino" class="dino-card">
       <h3>{{ d.name }}</h3>
+      <p>Nombre científico: {{d.scientificName}}</p>
       <p>Precio: {{ d.cost }} monedas</p>
-      <p>Descripción: {{ d.description }}</p>
-
+      <p>Id Requerido: {{d.requiredRecintoId}}</p>
+      <img src={{d.image}}>
+      <button>Comprar</button>
     </div>
+
   </div>
 
 
@@ -23,8 +30,10 @@
   <div *ngIf="recinto.length">
     <div *ngFor="let r of recinto" class="recinto-card">
       <h3>{{ r.name }}</h3>
-      <p>Capacidad: {{ r.capacity }}</p>
-      <p>Tipo: {{ r.type }}</p>
+      <p>Capacidad: {{ r.description }}</p>
+      <p>Precio: {{ r.cost }} monedas</p>
+      <img src={{r.image}}>
+      <button>Comprar</button>
     </div>
   </div>
 </div>

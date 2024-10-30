@@ -1,5 +1,8 @@
+import { RecintosService } from './../services/recintos.service';
+import { DinosauriosService } from './../services/dinosaurios.service';
+import { ParqueService } from './../services/parque.service';
 import { CommonModule } from '@angular/common';
-import { JuegoService } from './../services/juego.service';
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,30 +13,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit {
-  parque: any;
+  parque: any[] =[];
   dino: any[]=[];
   recinto: any[]=[];
   emergencia: any[]=[];
   moneda:number =0;
 
-  constructor(private JuegoService:JuegoService){}
+  constructor(private ParqueService: ParqueService, private DinosauriosService: DinosauriosService, private RecintosService:RecintosService){}
 
 //cargar la info de parque,dinos y recintos de la api
 
 cargaParque(){
-  this.JuegoService.getParque().subscribe(data =>{
+  this.ParqueService.getParque().subscribe(data =>{
     this.parque= data;
     //si hay monedas acumuladas tb hay que cargarlas
     this.moneda= data.moneda;
   });
 }
 cargaDino(){
-  this.JuegoService.getDinos().subscribe(data=>{
+  this.DinosauriosService.getDinos().subscribe(data=>{
     this.dino= data;
   });
 }
 cargaRecintoa(){
-  this.JuegoService.getRecintos().subscribe(data=>{
+  this.RecintosService.getRecintos().subscribe(data=>{
     this.recinto=data;
   });
 }
@@ -47,6 +50,6 @@ cargaRecintoa(){
   //al hacer click se incrementa las monedas
   AumentoMoneda(){
     this.moneda +=50;
-    this.parque.moneda= this.moneda;
+   // this.parque.moneda= this.moneda;
   }
 }
