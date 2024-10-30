@@ -1,1 +1,31 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+
+  <h1>Parque de Dinosaurios</h1>
+  <p>Nombre del Parque: {{ parque?.parkName }}</p>
+  <p>Monedas acumuladas: <span>{{ moneda }}</span>
+  <img src="../../../assets/images/moneda.png" alt="Moneda" /></p>
+
+
+  <button (click)="AumentoMoneda()">Hacer Click y Ganar Monedas</button>
+
+  <h2>Dinosaurios Disponibles</h2>
+  <div *ngIf="dino.length">
+    <div *ngFor="let d of dino" class="dino-card">
+      <h3>{{ d.name }}</h3>
+      <p>Precio: {{ d.cost }} monedas</p>
+      <p>Descripción: {{ d.description }}</p>
+
+    </div>
+  </div>
+
+
+  <h2>Recintos Disponibles</h2>
+  <div *ngIf="recinto.length">
+    <div *ngFor="let r of recinto" class="recinto-card">
+      <h3>{{ r.name }}</h3>
+      <p>Capacidad: {{ r.capacity }}</p>
+      <p>Tipo: {{ r.type }}</p>
+    </div>
+  </div>
+</div>
+

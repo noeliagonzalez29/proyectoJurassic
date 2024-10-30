@@ -1,50 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;600&display=swap');
+
 .container {
+  min-height: 100vh;
   display: flex;
-  height: 100vh;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+              url('https://via.placeholder.com/1920x1080') center/cover;
+  padding: 20px;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  background: rgba(34, 34, 34, 0.95);
+  padding: 40px;
+  border-radius: 10px;
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ffd700, #ff4500, #ffd700);
+  animation: borderGlow 3s infinite linear;
 }
 
 label {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
+  display: block;
+  margin-bottom: 25px;
+  color: #ffffff;
+  font-family: 'Teko', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  position: relative;
 }
 
 input {
-  padding: 10px;
-  border: 1px solid #ccc;
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  margin-bottom: 5px;
+  background: #333;
+  border: 1px solid #ffd700;
   border-radius: 5px;
-  margin-bottom: 10px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #ff4500;
+  box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+}
+
+input.ng-invalid.ng-touched {
+  border-color: #ff0000;
+  animation: shake 0.5s ease-in-out;
 }
 
 span {
-  color: red;
-  font-size: 12px;
+  display: block;
+  color: #ff4500;
+  font-size: 0.9rem;
   margin-top: 5px;
+  font-family: 'Teko', sans-serif;
+  letter-spacing: 0.5px;
+  padding-left: 5px;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: slideDown 0.3s forwards;
 }
 
 button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
+  width: 100%;
+  padding: 12px;
+  background: #ff4500;
   border: none;
   border-radius: 5px;
+  color: white;
+  font-family: 'Teko', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   cursor: pointer;
-  margin-top: 10px;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
 }
 
 button:hover {
-  background-color: #45a049;
+  background: #ffd700;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+p {
+  text-align: center;
+  font-family: 'Teko', sans-serif;
+  margin: 10px 0;
+}
+
+p[registrationSuccess] {
+  color: #4CAF50;
+  font-size: 1.1rem;
+  animation: pulse 2s infinite;
+}
+
+p[errors] {
+  color: #ff4500;
+  font-size: 1rem;
+}
+
+/* Animaciones */
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes slideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Efecto de escamas de dinosaurio en el fondo */
+form::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(
+      circle at 100% 50%,
+      transparent 20%,
+      rgba(255, 215, 0, 0.03) 21%,
+      rgba(255, 215, 0, 0.03) 34%,
+      transparent 35%,
+      transparent
+    ) 0 0/30px 30px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 480px) {
+  form {
+    padding: 20px;
+  }
+
+  input {
+    padding: 10px;
+  }
+
+  button {
+    padding: 10px;
+  }
 }

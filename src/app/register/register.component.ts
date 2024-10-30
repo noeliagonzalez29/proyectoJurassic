@@ -1,8 +1,8 @@
 import { UserService } from './../services/user.service';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import{FormBuilder, FormGroup, ReactiveFormsModule, Validators} from  '@angular/common';
-import { from } from 'rxjs';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -21,5 +21,18 @@ export class RegisterComponent {
       password: ['', [Validators.required, Validators.minLength]],
       confirmPassword: ['', [Validators.required]]
     });
+  }
+  onSubmit() {
+    if (this.form.valid && this.form.value.password === this.form.value.confirmPassword) {
+      const { email, password } = this.form.value;
+      this.UserService.registerUser(email, password, (success) => {
+        this.registrationSuccess = success;
+        if (!success) {
+          this.errors['register'] = 'Error en el registro. Intente de nuevo.';
+        }
+      });
+    } else {
+      this.errors['register'] = 'Revise los datos del formulario.';
+    }
   }
 }

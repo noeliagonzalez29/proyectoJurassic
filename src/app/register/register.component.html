@@ -21,6 +21,7 @@
               do not match</span>
       </label>
       <p *ngIf="registrationSuccess">Registration successful</p>
+      <p *ngIf="errors['register']">{{ errors['register'] }}</p>
       <button type="submit">Register</button>
   </form>
 </div>

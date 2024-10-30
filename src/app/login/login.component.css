@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;600&display=swap');
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+              url('https://via.placeholder.com/1920x1080') center/cover;
+  padding: 20px;
+}
+
+form {
+  background: rgba(34, 34, 34, 0.95);
+  padding: 40px;
+  border-radius: 10px;
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ffd700, #ff4500, #ffd700);
+  animation: borderGlow 3s infinite linear;
+}
+
+label {
+  display: block;
+  margin-bottom: 25px;
+  color: #ffffff;
+  font-family: 'Teko', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  background: #333;
+  border: 1px solid #ffd700;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #ff4500;
+  box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #ff4500;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Teko', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 5%;
+}
+
+button:hover {
+  background: #ffd700;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+p {
+  color: #ff4500;
+  margin: 10px 0;
+  text-align: center;
+  font-family: 'Teko', sans-serif;
+}
+
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Efecto de escamas de dinosaurio en el fondo */
+form::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(
+      circle at 100% 50%,
+      transparent 20%,
+      rgba(255, 215, 0, 0.03) 21%,
+      rgba(255, 215, 0, 0.03) 34%,
+      transparent 35%,
+      transparent
+    ) 0 0/30px 30px;
+  pointer-events: none;
+  z-index: 1;
+}
