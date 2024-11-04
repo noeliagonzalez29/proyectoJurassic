@@ -1,11 +1,6 @@
 <div class="dashboard">
 
   <h1>Parque de Dinosaurios</h1>
-
-
-     //no poner nombre del parque. Para la moneda moneda.coin
-
-
   <p>Monedas acumuladas: <span>{{ moneda }}</span>
   <img id="moneda" src="/images/moneda.png" alt="Moneda" /></p>
 
@@ -20,7 +15,9 @@
       <p>Precio: {{ d.cost }} monedas</p>
       <p>Id Requerido: {{d.requiredRecintoId}}</p>
       <img src={{d.image}}>
-      <button>Comprar</button>
+      <button (click)="comprarDino(d)" [disabled]="!puedeComprar(d.cost)" [ngClass]="{ 'comprado-btn': compradosDino.includes(d.id) }">{{ compradosDino.includes(d.id) ? 'Comprado' : 'Comprar' }}
+
+      </button>
     </div>
 
   </div>
@@ -33,7 +30,8 @@
       <p>Capacidad: {{ r.description }}</p>
       <p>Precio: {{ r.cost }} monedas</p>
       <img src={{r.image}}>
-      <button>Comprar</button>
+      <button (click)="comprarRecinto(r)" [disabled]="!puedeComprar(r.cost)" [ngClass]="{ 'comprado-btn': compradosRecinto.includes(r.id) }">
+        {{ compradosRecinto.includes(r.id) ? 'Comprado' : 'Comprar' }}</button>
     </div>
   </div>
 </div>

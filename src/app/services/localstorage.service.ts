@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class LocalstorageService {
   private TOKEN= 'token';
+  private COINS= 'coins';
   constructor() { }
   // Método para guardar el token
   setToken(token: string): void {
@@ -19,5 +20,16 @@ export class LocalstorageService {
   // Método para eliminar el token
   clearToken(): void {
     localStorage.removeItem(this.TOKEN);
+  }
+  setCoins(coins: number): void {
+    localStorage.setItem(this.COINS, coins.toString());
+  }
+
+  getCoins(): number {
+    return parseInt(localStorage.getItem(this.COINS) || '0', 10);
+  }
+
+  clearCoins(): void {
+    localStorage.removeItem(this.COINS);
   }
 }

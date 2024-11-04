@@ -19,4 +19,28 @@ export class ParqueService {
     };
     return this.http.get('http://localHost:3000/park/status', headers);
   }
+
+  actualizarParque(parque: []): Observable<any>{
+
+    const token = localStorage.getItem('token');
+    const headers = {
+      headers: new HttpHeaders({
+        "Authorization": `Bearer ${token}`,
+
+      })
+    };
+    /* hay que pasar el parque entero en vez de enviar las cosas a data
+    {
+      "userId": "79ac2d61-48e3-406c-9b7a-2f50638fc995",
+     "dinosaurIds": [],
+     "recintosIds": [],
+     "coins": 0
+  }
+    */
+
+    const body = { coins: moneda };
+
+    // Realizamos la petición PUT
+    return this.http.put('http://localHost:3000/park/update', body, headers);
+  }
 }
