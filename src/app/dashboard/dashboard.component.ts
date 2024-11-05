@@ -14,13 +14,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit {
-  parque: any[] =[];
+  parque: any= {}; //mandar todo el objeto
   dino: any[]=[];
   recinto: any[]=[];
   emergencia: any[]=[];
   moneda:number =0;
   compradosDino: number[] = [];
   compradosRecinto: number[] = [];
+  juegoCompleto = false;
 
   constructor(private ParqueService: ParqueService, private DinosauriosService: DinosauriosService, private RecintosService:RecintosService, private LocalstorageService: LocalstorageService){}
 
@@ -30,18 +31,14 @@ cargaParque(){
   this.ParqueService.getParque().subscribe(data =>{
     this.parque= data;
     //si hay monedas acumuladas tb hay que cargarlas
-    if (data && data.length > 0) {
-      this.moneda = data[0].coins; // Cargar la moneda inicial desde el parque
-      this.LocalstorageService.setCoins(this.moneda);
+    console.log(this.parque);
+    if (data) {
+      this.parque = data;
+      this.moneda = this.parque.coins;
+      this.compradosDino = this.parque.dinosaurIds || [];
+      this.compradosRecinto = this.parque.recintosIds || [];
+      this.LocalstorageService.setCoins(this.moneda); // Guarda en localStorage
     }
-    this.ParqueService.actualizarParque(this.moneda).subscribe(
-      response => {
-        console.log('Monedas actualizadas en el servidor:', response);
-      },
-      error => {
-        console.error('Error al actualizar las monedas:', error);
-      }
-    );
 
   });
 }
@@ -61,7 +58,7 @@ cargaRecintoa(){
       this.cargaParque();
       this.cargaDino();
       this.cargaRecintoa();
-      this.moneda = this.LocalstorageService.getCoins();
+
   }
   //al hacer click se incrementa las monedas
   AumentoMoneda(){
@@ -80,6 +77,7 @@ cargaRecintoa(){
 
       this.compradosDino.push(dino.id);
       this.actualizarMonedas();
+      this.verificarJuegoCompleto();
 
     }
   }
@@ -87,18 +85,23 @@ cargaRecintoa(){
   comprarRecinto(recinto: any) {
     if (this.puedeComprar(recinto.cost)) {
       this.moneda -= recinto.cost;
-      
+
       this.compradosRecinto.push(recinto.id);
       this.actualizarMonedas();
+      this.verificarJuegoCompleto();
     }
   }
   actualizarMonedas() {
-    this.ParqueService.actualizarParque(this.moneda).subscribe(
+    this.parque.coins = this.moneda;
+    this.parque.dinosaurIds = this.compradosDino;
+    this.parque.recintosIds = this.compradosRecinto;
+
+    this.ParqueService.actualizarParque(this.parque).subscribe(
       response => {
-        console.log('Monedas actualizadas en el servidor:', response);
+        console.log('Parque actualizado en el servidor:', response);
       },
       error => {
-        console.error('Error al actualizar las monedas:', error);
+        console.error('Error al actualizar el parque:', error);
       }
     );
   }
@@ -109,5 +112,10 @@ cargaRecintoa(){
       return this.compradosRecinto.includes(id);
     }
     return false; // En caso de tipo no válido
+  }
+  verificarJuegoCompleto() {
+    this.juegoCompleto =
+      this.dino.length === this.compradosDino.length &&
+      this.recinto.length === this.compradosRecinto.length;
   }
 }

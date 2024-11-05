@@ -7,6 +7,11 @@
 
   <button (click)="AumentoMoneda()">Hacer Click y Ganar Monedas</button>
 
+  <!-- Mensaje de juego completado -->
+  <div *ngIf="juegoCompleto" class="juego-completo-mensaje">
+    <h2>¡Felicidades! Has comprado todos los dinosaurios y recintos. ¡Has completado el juego!</h2>
+  </div>
+  
   <h2>Dinosaurios Disponibles</h2>
   <div *ngIf="dino.length">
     <div *ngFor="let d of dino" class="dino-card">

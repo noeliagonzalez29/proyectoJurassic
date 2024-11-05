@@ -1,39 +1,157 @@
-.dashboard {
-  text-align: center;
-  margin: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;600&display=swap');
+
+body {
+  font-family: 'Teko', sans-serif;
+  margin: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+              url('https://via.placeholder.com/1920x1080') center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-.dino-card, .recinto-card {
-  border: 1px solid #d66868;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 8px;
-  display: inline-block;
-  width: 200px;
+.dashboard {
+  background: rgba(34, 34, 34, 0.95);
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  width: 95% ;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
 
+.dashboard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ffd700, #ff4500, #ffd700);
+  animation: borderGlow 3s infinite linear;
+}
+
+h1, h2, h3 {
+  color: #ffd700;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+p {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+#moneda {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
 }
 
 button {
-  background-color: #4CAF50;
-  color: white;
+  width: 100%;
+  padding: 12px;
+  background: #ff4500;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   cursor: pointer;
-  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
 }
 
 button:hover {
-  background-color: #45a049;
+  background: #ffd700;
+  transform: translateY(-2px);
 }
-#moneda{
-  width: 20%;
-  height: 20%;
 
+button:active {
+  transform: translateY(1px);
+}
+
+.comprado-btn {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.dino-card, .recinto-card {
+  display: inline-block;
+  background: rgba(34, 34, 34, 0.95);
+  border: 1px solid #ffd700;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.dino-card h3, .recinto-card h3 {
+  color: #ff4500;
+  font-size: 1.5rem;
+}
+
+.dino-card p, .recinto-card p {
+  color: #ffffff;
+  font-size: 1rem;
 }
 
 .dino-card img, .recinto-card img {
   width: 100%;
-  height: auto;
+  max-width: 150px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Efecto de escamas en el fondo */
+.dashboard::after, .dino-card::after, .recinto-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(
+      circle at 100% 50%,
+      transparent 20%,
+      rgba(255, 215, 0, 0.03) 21%,
+      rgba(255, 215, 0, 0.03) 34%,
+      transparent 35%,
+      transparent
+    ) 0 0/30px 30px;
+  pointer-events: none;
+  z-index: 1;
+}
+.juego-completo-mensaje {
+  background-color: rgba(255, 215, 0, 0.2);
+  border: 2px solid #ffd700;
   border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  color: #ffd700;
+  font-size: 1.5rem;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
 }
